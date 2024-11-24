@@ -1,0 +1,69 @@
+<div class="reservation-edit-page">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="card">
+          <div class="card-header text-center">
+            <h2>予約編集</h2>
+          </div>
+          <div class="card-body">
+            <div class="room-details mb-4">
+              <% if @reservation.room.room_image.attached? %>
+                <div class="text-center mb-3">
+                  <%= image_tag @reservation.room.room_image, class: "img-fluid rounded" %>
+                </div>
+              <% else %>
+                <div class="text-center mb-3">
+                  <%= image_tag 'default_room.png', class: "img-fluid rounded" %>
+                </div>
+              <% end %>
+              <h4 class="text-center"><%= @reservation.room.room_name %></h4>
+              <p class="text-center"><%= @reservation.room.address %></p>
+              <p><%= @reservation.room.description %></p>
+            </div>
+
+            <%= form_with model: @reservation, local: true do |f| %>
+              <div class="form-group mb-4">
+                <%= f.label :start_date, "チェックイン日" %>
+                <%= f.date_field :start_date, class: "form-control" %>
+                <% if @reservation.errors[:start_date].any? %>
+                  <% @reservation.errors.full_messages_for(:start_date).each do |msg| %>
+                    <div class="error-message"><%= msg %></div>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <div class="form-group mb-4">
+                <%= f.label :end_date, "チェックアウト日" %>
+                <%= f.date_field :end_date, class: "form-control" %>
+                <% if @reservation.errors[:end_date].any? %>
+                  <% @reservation.errors.full_messages_for(:end_date).each do |msg| %>
+                    <div class="error-message"><%= msg %></div>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <div class="form-group mb-4">
+                <%= f.label :people, "人数" %>
+                <%= f.number_field :people, class: "form-control" %>
+                <% if @reservation.errors[:people].any? %>
+                  <% @reservation.errors.full_messages_for(:people).each do |msg| %>
+                    <div class="error-message"><%= msg %></div>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <div class="form-group text-center mb-4">
+                <%= f.submit "予約更新", class: "btn btn-dark btn-block mt-3" %>
+              </div>
+            <% end %>
+
+            <div class="text-center mt-3">
+              <%= link_to "キャンセル", :back, class: "btn btn-cancel btn-block mt-3" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

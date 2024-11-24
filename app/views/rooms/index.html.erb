@@ -1,0 +1,43 @@
+<div class="rooms-index-page">
+  <div class="container mt-4">
+    <%= form_with url: rooms_path, method: :get, local: true, class: "search-form" do %>
+      <div class="form-row align-items-center">
+        <div class="form-group col-md-5 mb-3">
+          <%= text_field_tag :address, params[:address], class: "form-control", placeholder: "エリア名を入力" %>
+        </div>
+        <div class="form-group col-md-5 mb-3">
+          <%= text_field_tag :keywords, params[:keywords], class: "form-control", placeholder: "キーワードを入力" %>
+        </div>
+        <div class="form-group col-md-2 mb-3">
+          <%= submit_tag "検索", class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+    <% end %>
+    <p class="results-count"><%= @rooms_count %> 件の施設が見つかりました</p>
+
+    <div class="row">
+      <% @rooms.each do |room| %>
+        <div class="col-lg-4 mb-4">
+          <div class="card shadow-sm">
+            <% if room.room_image.attached? %>
+              <%= image_tag room.room_image, class: "card-img-top", style: "height: 250px; object-fit: cover;" %>
+            <% else %>
+              <%= image_tag 'default_room.png', class: "card-img-top", style: "height: 250px; object-fit: cover;" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= room.room_name %></h5>
+              <p class="card-address"><%= room.address %></p>
+              <p class="card-text"><%= room.description %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to '詳細はこちら', room_path(room), class: "btn btn-sm btn-outline-secondary" %>
+                </div>
+                <small class="price">¥<%= room.price_per_night %>~</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="reservation-page">
+  <div class="container">
+    <h2>予約一覧</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>紹介文</th>
+          <th>チェックイン</th>
+          <th>チェックアウト</th>
+          <th>人数</th>
+          <th>支払い金額</th>
+          <th>予約確定日時</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservations.each do |reservation| %>
+          <tr>
+            <td>
+              <% if reservation.room.room_image.attached? %>
+                <%= image_tag reservation.room.room_image, class: "img-fluid", width: "100" %>
+              <% else %>
+                <%= image_tag 'default_room.png', class: "img-fluid", width: "100" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to reservation.room.room_name, room_path(reservation.room) %>
+            </td>
+            <td><%= truncate(reservation.room.description, length: 50) %></td>
+            <td><%= reservation.start_date.strftime("%Y/%m/%d") %></td>
+            <td><%= reservation.end_date.strftime("%Y/%m/%d") %></td>
+            <td><%= reservation.people %>人</td>
+            <td>¥<%= reservation.sum_price %></td>
+            <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+            <td class="text-end">
+              <div class="dropdown">
+                <a class="btn btn-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= image_tag 'three-dot.svg', width: "15", height: "15" %>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                  <li><%= link_to '再予約', [:edit, reservation], class: 'dropdown-item' %></li>
+                  <li><%= link_to '削除', reservation, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'dropdown-item' %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

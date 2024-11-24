@@ -1,0 +1,820 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+body {
+  background-color: #f2f2f2;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+// ホームページ
+.home-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  .hero-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    text-align: center;
+
+    h1 {
+      color: #333;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .search-form {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form-group {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .form-control {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .btn-block {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .recommended-areas {
+    padding: 40px 20px;
+    text-align: center;
+
+    h2 {
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .city-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .city-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .city-image-container {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      margin: 10px;
+    }
+
+    .city-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .city-name {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+
+    .city-image:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+/* ナビバーのスタイル */
+.nav-link.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+.navbar {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.navbar-brand {
+  color: #f2f2f2;
+  margin-left: 0;
+}
+
+.navbar-nav {
+  margin-right: 0;
+}
+
+.special-link {
+  background-color: #f8f9fa;
+  color: #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.special-link:hover {
+  background-color: #e2e6ea;
+  color: #000;
+}
+
+/* エラーメッセージのスタイル */
+.error-message {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* フラッシュメッセージのスタイル */
+.flash-messages {
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+.flash {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
+.flash.notice {
+  background-color: #000;
+  /* noticeの黒背景 */
+}
+
+.flash.alert {
+  background-color: #b01919;
+  /* alertの赤背景 */
+}
+
+/* フッタースタイル */
+.footer {
+  background-color: #000;
+  /* ヘッダーと一致する黒っぽい背景色 */
+  color: #f2f2f2 !important;
+  /* ヘッダーと一致する白っぽい文字色 */
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+  /* フッターをページの下部に固定 */
+}
+
+/* フッター内のテキストのスタイル */
+.text-muted {
+  color: #f2f2f2 !important;
+}
+
+/* リンクボタンのスタイル */
+.btn-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.btn-link:first-child {
+  margin-right: 15px;
+}
+
+.btn-link:hover {
+  color: #555;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .special-link {
+    margin-left: 0;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .flash-messages {
+    bottom: 80px;
+  }
+
+  .container.mt-5 {
+    margin-top: 3rem;
+  }
+
+  .footer {
+    padding: 20px 0;
+  }
+}
+
+
+.login-page,
+.registration-page {
+  .form {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ラベルと入力フィールドのスタイル */
+  .form-label {
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+
+  /* ボタンのスタイル */
+  .btn-dark,
+  .btn-cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    /* 必要に応じて高さを調整 */
+    font-size: 16px;
+  }
+
+  .btn-dark {
+    background-color: #333333;
+    border-color: #333333;
+    color: #ffffff;
+  }
+
+  .btn-dark:hover {
+    background-color: #555555;
+    border-color: #555555;
+  }
+
+  .btn-cancel {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #333333;
+  }
+
+  .btn-cancel:hover {
+    background-color: #e6e6e6;
+    color: #555555;
+  }
+
+}
+
+/* フォームの追加スタイル */
+.form-group.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* ボタンの追加スタイル */
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* 施設一覧ページのスタイル */
+.rooms-index-page {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .search-form {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+
+  .form-group {
+    width: 30%;
+  }
+
+  .results-count {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .col-lg-4, .col-md-6, .col-sm-12 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  .card-address {
+    font-size: 0.8em;
+    color: #777;
+    margin: 5px 0;
+  }
+
+  .card-text {
+    font-size: 0.9em;
+    margin: 10px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: #555;
+  }
+
+  .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .btn-outline-secondary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #333;
+  }
+}
+
+
+/* 施設詳細ページのスタイル */
+.room-detail-page {
+  .room-details-container {
+    padding: 20px;
+  }
+
+  .room-details {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .room-details__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .room-details-body {
+    padding: 0 20px;
+  }
+
+  .room-details-body__name-and-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .room-details__name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .room-details__price {
+    font-size: 1.2em;
+    color: #007bff;
+  }
+
+  .room-details__address {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+  }
+
+  .room-details__content {
+    font-size: 1em;
+    margin: 20px 0;
+  }
+
+  .reservation-form {
+    margin-top: 20px;
+  }
+
+  .reservation-form__input-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .reservation-form__input-group {
+    flex: 1 1 45%;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+
+  .reservation-form__input-group--person-count {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .reservation-form__input--date {
+    width: 100%;
+  }
+
+  .reservation-form__input--person-count {
+    flex: 1;
+    margin-right: 5px;
+  }
+
+  .reservation-form__button {
+    background-color: #000;
+    /* ボタンの色を黒に変更 */
+    border-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .reservation-form__button:hover {
+    background-color: #333;
+    border-color: #333;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.reservation-page,
+.my_rooms-page {
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+
+    th,
+    td {
+      padding: 0.75rem;
+      vertical-align: middle;
+      border-top: 1px solid #dee2e6;
+      text-align: center;
+      background-color: #fff;
+      /* 背景色を白に統一 */
+    }
+
+    thead th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    tbody+tbody {
+      border-top: 2px solid #dee2e6;
+    }
+
+    .table {
+      background-color: #fff;
+    }
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn {
+    margin: 0 5px;
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+    /* デフォルトの矢印を非表示 */
+  }
+
+  .dropdown-menu {
+    min-width: auto;
+    /* ドロップダウンメニューの幅を自動調整 */
+  }
+
+  .text-end {
+    text-align: right;
+  }
+
+  .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+// アカウント、プロフィールの詳細ページ
+.account-page,
+.profile-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 60px;
+
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    min-width: 600px;
+    max-width: 800px;
+
+    .card-header {
+      background-color: #555;
+      color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .card-body {
+      .btn-dark {
+        background-color: #555;
+        border-color: #555;
+
+        &:hover {
+          background-color: #333;
+          border-color: #333;
+        }
+      }
+
+      .account-details,
+      .profile-details {
+        margin-bottom: 20px;
+
+        .row {
+          margin-bottom: 1rem;
+
+          .col-sm-3 {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .profile-image {
+        margin-bottom: 20px;
+
+        .img-fluid.rounded-circle {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .nav-link {
+    color: #555;
+    text-decoration: none;
+
+    &.active {
+      font-weight: bold;
+      color: #000;
+    }
+
+    &:hover {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
+
+// アカウント、プロフィールの編集ページ
+.profile-edit-page,
+.account-edit-page {
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    .card-header {
+      background-color: #555;
+      color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .card-body {
+      .form-label {
+        font-weight: bold;
+      }
+
+      .input-group-text {
+        background-color: #555;
+        color: #fff;
+        border: none;
+      }
+
+      .btn-dark {
+        background-color: #555;
+        border-color: #555;
+
+        &:hover {
+          background-color: #333;
+          border-color: #333;
+        }
+      }
+    }
+  }
+}
+// 予約確認ページ
+.reservation-confirm-page {
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    .card-header {
+      background-color: #555;
+      color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .card-body {
+      font-size: 1.1rem;
+
+      .btn-dark {
+        background-color: #555;
+        border-color: #555;
+
+        &:hover {
+          background-color: #333;
+          border-color: #333;
+        }
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+
+        &:hover {
+          background-color: #5a6268;
+          border-color: #545b62;
+        }
+      }
+    }
+  }
+}
+
+// 再予約ページ
+.reservation-edit-page {
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    .card-header {
+      background-color: #555;
+      color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .card-body {
+      font-size: 1.1rem;
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 0.875rem;
+      }
+
+      .btn-dark {
+        background-color: #555;
+        border-color: #555;
+
+        &:hover {
+          background-color: #333;
+          border-color: #333;
+        }
+      }
+
+      .btn-cancel {
+        background-color: #f8f9fa;
+        color: #333;
+        border: 1px solid #ccc;
+
+        &:hover {
+          background-color: #e2e6ea;
+          color: #000;
+        }
+      }
+
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

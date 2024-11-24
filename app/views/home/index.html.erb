@@ -1,0 +1,41 @@
+<div class="home-page">
+  <div class="hero-section">
+    <h1>Potepan Shareでまだ体験したことのない旅をしよう</h1>
+    <%= form_with url: rooms_path, method: :get, local: true, class: "search-form" do %>
+      <div class="form-group">
+        <%= text_field_tag :address, params[:address], class: "form-control", placeholder: "エリア名を入力" %>
+        <%= text_field_tag :keywords, params[:keywords], class: "form-control", placeholder: "キーワードを入力" %>
+      </div>
+      <%= submit_tag "検索", class: "btn btn-primary btn-block mt-3" %>
+    <% end %>
+  </div>
+  <div class="recommended-areas">
+    <h2>おすすめのエリア</h2>
+    <div class="city-container">
+      <%= link_to rooms_path(address: '東京'), class: 'city-link' do %>
+        <div class="city-image-container">
+          <%= image_tag 'tokyo.jpg', alt: '東京', class: 'city-image' %>
+          <div class="city-name">東京</div>
+        </div>
+      <% end %>
+      <%= link_to rooms_path(address: '大阪'), class: 'city-link' do %>
+        <div class="city-image-container">
+          <%= image_tag 'osaka.jpg', alt: '大阪', class: 'city-image' %>
+          <div class="city-name">大阪</div>
+        </div>
+      <% end %>
+      <%= link_to rooms_path(address: '京都府'), class: 'city-link' do %>
+        <div class="city-image-container">
+          <%= image_tag 'kyoto.jpg', alt: '京都', class: 'city-image' %>
+          <div class="city-name">京都</div>
+        </div>
+      <% end %>
+      <%= link_to rooms_path(address: '札幌'), class: 'city-link' do %>
+        <div class="city-image-container">
+          <%= image_tag 'sapporo.jpg', alt: '札幌', class: 'city-image' %>
+          <div class="city-name">札幌</div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
