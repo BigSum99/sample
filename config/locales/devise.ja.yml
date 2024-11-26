@@ -1,0 +1,63 @@
+ja:
+  devise:
+    confirmations:
+      confirmed: "メールアドレスの確認が成功しました。"
+      send_instructions: "メールアドレスを確認するための手順を数分以内にお送りします。"
+      send_paranoid_instructions: "もしメールアドレスがデータベースに存在する場合は、数分以内に確認方法の手順をお送りします。"
+    failure:
+      already_authenticated: "すでにログインしています。"
+      inactive: "アカウントがまだ有効化されていません。"
+      invalid: "無効な%{authentication_keys}またはパスワードです。"
+      locked: "アカウントがロックされています。"
+      last_attempt: "アカウントがロックされる前に、あと一回試行できます。"
+      not_found_in_database: "無効な%{authentication_keys}またはパスワードです。"
+      timeout: "セッションがタイムアウトしました。再度ログインしてください。"
+      unauthenticated: "続行する前にログインまたはサインアップする必要があります。"
+      unconfirmed: "続行する前にメールアドレスを確認してください。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認手順"
+      reset_password_instructions:
+        subject: "パスワードリセットの手順"
+      unlock_instructions:
+        subject: "アカウントロック解除の手順"
+      email_changed:
+        subject: "メールアドレスが変更されました"
+      password_change:
+        subject: "パスワードが変更されました"
+    omniauth_callbacks:
+      failure: "%{kind}の認証に失敗しました。理由: \"%{reason}\""
+      success: "%{kind}アカウントでの認証に成功しました。"
+    passwords:
+      no_token: "パスワードリセットメールからアクセスしないとこのページにアクセスできません。完全なURLを使用していることを確認してください。"
+      send_instructions: "パスワードをリセットする手順を数分以内にメールでお送りします。"
+      send_paranoid_instructions: "もしメールアドレスがデータベースに存在する場合は、数分以内にパスワードリカバリリンクをお送りします。"
+      updated: "パスワードが正常に変更されました。ログインしました。"
+      updated_not_active: "パスワードが正常に変更されました。"
+    registrations:
+      destroyed: "ご利用ありがとうございました！アカウントは正常にキャンセルされました。またのご利用をお待ちしています。"
+      signed_up: "ようこそ！サインアップが成功しました。"
+      signed_up_but_inactive: "サインアップが成功しましたが、アカウントがまだ有効化されていないため、ログインできません。"
+      signed_up_but_locked: "サインアップが成功しましたが、アカウントがロックされているため、ログインできません。"
+      signed_up_but_unconfirmed: "確認リンクを含むメッセージがメールアドレスに送信されました。アカウントを有効化するためにリンクをフォローしてください。"
+      update_needs_confirmation: "アカウント情報が正常に更新されましたが、新しいメールアドレスを確認する必要があります。確認リンクを含むメールを確認してください。"
+      updated: "アカウント情報が正常に更新されました。"
+      updated_but_not_signed_in: "アカウント情報が正常に更新されましたが、パスワードが変更されたため、再度ログインしてください。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "すでにログアウトしています。"
+    unlocks:
+      send_instructions: "アカウントロック解除の手順を数分以内にメールでお送りします。"
+      send_paranoid_instructions: "もしアカウントが存在する場合は、数分以内にアカウントロック解除の手順をお送りします。"
+      unlocked: "アカウントのロックが正常に解除されました。続行するにはログインしてください。"
+  errors:
+    messages:
+      already_confirmed: "すでに確認済みです。ログインを試してください"
+      confirmation_period_expired: "%{period}以内に確認する必要があります。新しい確認メールをリクエストしてください"
+      expired: "期限が切れました。新しいものをリクエストしてください"
+      not_found: "見つかりませんでした"
+      not_locked: "ロックされていませんでした"
+      not_saved:
+        one: "%{resource}の保存中に1つのエラーが発生しました:"
+        other: "%{resource}の保存中に%{count}つのエラーが発生しました:"

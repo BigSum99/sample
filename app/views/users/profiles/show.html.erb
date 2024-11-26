@@ -1,0 +1,37 @@
+<div class="profile-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <%= link_to 'アカウント', user_account_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'プロフィール', users_profile_path, class: 'nav-link active' %>
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-header">
+            <h2>プロフィール詳細</h2>
+          </div>
+          <div class="card-body">
+            <div class="profile-details text-center">
+              <div class="profile-image mb-3">
+                <% if current_user.profile_image.attached? %>
+                  <%= image_tag current_user.profile_image, class: "img-fluid rounded-circle", width: "150" %>
+                <% else %>
+                  <%= image_tag 'default_avatar.png', class: "img-fluid rounded-circle", width: "150" %>
+                <% end %>
+              </div>
+              <p><strong>名前:</strong> <%= current_user.username %></p>
+              <p><strong>自己紹介:</strong> <%= current_user.introduction %></p>
+              <div class="d-flex justify-content-end">
+                <%= link_to '編集', users_edit_profile_path, class: 'btn btn-dark mt-3' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

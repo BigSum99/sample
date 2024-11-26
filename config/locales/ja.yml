@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      room: "ルーム"
+      reservation: "予約"
+    attributes:
+      user:
+        user_id: "ユーザーID"
+        username: "ユーザー名"
+        email: "メールアドレス"
+        password: "パスワード"
+        icon_image: "アイコン画像"
+        introduction: "自己紹介"
+      room:
+        room_id: "ルームID"
+        user_id: "ユーザーID"
+        room_name: "ルーム名"
+        price_per_night: "料金"
+        description: "説明"
+        address: "住所"
+        room_image: "施設画像"
+      reservation:
+        reservation_id: "予約ID"
+        user_id: "ユーザーID"
+        room_id: "ルームID"
+        start_date: "開始日"
+        end_date: "終了日"
+        people: "人数"
+        sum_price: "合計金額"
+  errors:
+    messages:
+      record_invalid: "バリデーションに失敗しました。"
+      empty: "を入力してください"
+      too_short: "が短すぎます"
+      not_saved: "保存に失敗しました。"
